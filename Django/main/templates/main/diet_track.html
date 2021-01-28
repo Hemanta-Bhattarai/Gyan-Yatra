@@ -1,0 +1,21 @@
+{% extends "main/base.html"%}
+{% block content %}
+<h1> My diet Track </h1>
+<ul>
+    <li> Total Calorie :   {{ totalCalorie}}  Cal </li>
+    <li> Total Carbs   :   {{ totalCarbs}}    gm</li>
+    <li> Total Protein :   {{ totalProtein}}  gm</li>
+    <li> Total Fat     :   {{ totalFat}}      gm</li>
+</ul>
+
+
+
+
+<h1> {{request.user.username}} Target </h1>
+<ul>
+    <li> Target Calorie :   {{targetCalorie}}  Cal </li>
+    <li> Target Carbs   :   {{targetCarbs}}    gm</li>
+    <li> Target Protein :   {{targetProtein}}  gm</li>
+    <li> Target Fat     :   {{targetFat}}      gm</li>
+</ul>
+{% endblock content%}
