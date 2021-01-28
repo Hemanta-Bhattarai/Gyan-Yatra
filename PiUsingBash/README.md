@@ -2,12 +2,12 @@
 ## Learn basic bash scripting 
 
 ### Variables:: Line 5
-```
+```bash
     number of Sim=10000
 ```
 Variable definition in bash script:
 
-```
+```bash
 NAME="John"
 number=100
 ```
@@ -20,11 +20,11 @@ echo '$NAME'
 printf "%s" $NAME
 printf "$NAME"
 
-```
+```bash
 The difference between '$NAME' and "$NAME" is, the first one doesn't expand the variable i.e "John" but the second one expands the variable. The output of the first one '$NAME' is $NAME but the second is "$NAME" John.
 
 ### Function definition:: Line 9
-```
+```bash
    function_name() {
     ---statements---
     ---statements---
@@ -33,7 +33,7 @@ The difference between '$NAME' and "$NAME" is, the first one doesn't expand the 
 usage() in Line 9. is the function defined which prints out the help statement for the arguments to be passed in to the script. Note if function takes the argument then it can be accessed inside the function using $1, $2 ... $n. For example if you want to pass two numbers , and it and print out the sum. It is done as:
 
 **sum function**
-```
+```bash
 sum(){
     first_num=$1
     second_num=$2
@@ -43,11 +43,11 @@ sum(){
 }
 ```
 To use it we must call the function with two arguments:
-```
+```bash
     sum 1 2
 ```
 To store the output of this function to a variable we should use 
-```
+```bash
 varName=$(commands)
 
 ```
@@ -56,7 +56,7 @@ The above syntax takes the output of command and assigins its value to the varia
 
 ### Conditional execution:: Line 18
 
-```
+```bash
     if [[ condition check ]];then
         ....statements.....
     elif [[ condition check ]];then
@@ -68,7 +68,7 @@ The above syntax takes the output of command and assigins its value to the varia
 **note**: [[ is a command which returns 0(true) or 1(false) for condition check.
 
 *Different condition checks*
-```
+```bash
 -z STRING        Empty string
 -n STRING        Not emtpy string
 str1 == str2     Equal
@@ -113,7 +113,7 @@ And in Line 32. we have used it to check if the file exists or not.
 
 ### Case statements:: Line 35
 
-```
+```bash
 case $var in
     pattern1) --statements-- ;;
     pattern2) --statements-- ;;
@@ -124,20 +124,20 @@ Here, the $var that matches the pattern number is executed. The patterns are reg
 
 ### Numerical Calculations:: Line 45
 
-```
+```bash
 #add 200 to $a and store to b
 b=$((a+200))
 
 ```
 We can also use bc program. bc performs the mathematical calculation where expression is passed as string. Mathematical calculation is be do by using echo and pipe(|) operation. In Line 45. we have used bc and scale is precision after decimal place.
-```
+```bash
 #divide var2 by var1 set precision level to 4
 var=$(echo "scale=4;$var2/$var1"|bc)
 ```
 `echo "scale=4;$var2/$var1"|bc` is command to perform calculation and $(...) assigns output of command to variable name.
 
 ### Parsing arguments in bash:: Line 63
-```
+```bash
 while getopts "----option---pattern" option_carrier; do
     case ${option_carrier} in
         option1) ----statement1----;;
@@ -151,7 +151,7 @@ done
 In Line 63. the option pattern is ":hn:po:r:", the starting : ensures disable the defualt error handling of invalid options. Its good to always use this, so that itcatches the invalid options used. h,n,p,o,r are the options that can be passed to the script. The : following the options implies argument for that option is to be passed else error is caught. the option argument is stored in $OPTARG. `while` statement is also a looping statement which will be explained latter. 
 
 ### Redirection
-```
+```bash
 python hello.py > output.txt  # stdout to (file)
 python hello.py >> output.txt # stdout to (file), append
 python hello.py 2> error.log # stderr to (file)
@@ -164,7 +164,7 @@ Note: 1 is file descriptor for `stdout` and 2 is file descriptor for `stderr`. &
 
 
 ### Default values:: Line 76
-```
+```bash
 ${FOO:-val}    # $FOO or val is not set
 ${FOO:=val}    # set $FOO to val if not set
 ${FOO:+val}    # val if $FOO is set
@@ -173,27 +173,27 @@ ${FOO:?message} # show error message and exit if $FOO is set
 In Line 76. plotFlag has value of $plotFlag if set otherwise set to 0.
 ### Loops:: Line 88
 
-```
+```bash
 for var in list_of_files or sequence {start..end..(step)}; do
     echo $var
 done
 
 ```
 C++ style for loop
-```
+```bash
 for ((i=0;i<100;i++)); do
     echo $i
 done
 ```
 while loop:
-```
+```bash
 while ---condition----;do
     ----statements----
 done
 ```
 
 ### Reading file using loop
-```
+```bash
 IFS="\n"
 while read line; do
     echo $line
@@ -202,7 +202,7 @@ done < input_file
 Here, IFS is the **internal field separator** or delimiter. If we want to get tab separated data we can use `IFS="\t"`
 
 ### Substitution(get prefix and suffix):: Line 105
-```
+```bash
 ${FOO%suffix}    #removes suffix
 ${FOO#prefix}    #removes prefix
 ${FOO%%suffix}   #removes long suffix
@@ -212,15 +212,15 @@ ${FOO//from/to}  #replace all from found
 ${FOO/%from/to}  #replace suffix
 ${FOO/#from/to}  #replace prefix
 
-```
+```bash
 ### Here string and Here document:: Line 107
 `<<<` denotes here string. 
-```
+```bash
 cat <<< "Hi there"
 hi there
 ```
 `<<` denotes here is document
-```
+```bash
 cat << EOF
     hi
     I
@@ -235,14 +235,14 @@ NOTE: EOF can be any string.
 # Some more syntax
 
 ## Arguments in function or script
-```
+```bash
 $#     #Number of arguments
 $@      #All arguments starting from first
 $1      #first argument
 ```
 
 ## String manipulation
-```
+```bash
 ${name/J/j}         #substitute J for j
 ${name:0:2}         #slice character from 0 to 2
 ${name::2}          #slicing first two
@@ -250,7 +250,7 @@ ${name::-1}         #slice except last
 ${name:(-1)}        #slice 1 character from last
 ```
 ## Arrays
-```
+```bash
 #Define arrays
 
 fruit=('Apple','Orange','Banana')
