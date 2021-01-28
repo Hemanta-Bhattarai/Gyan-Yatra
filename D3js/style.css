@@ -1,0 +1,74 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+line {
+  stroke: red;
+}
+
+path {
+  stroke: green;
+  fill: none;
+  stroke-width: 2px;
+}
+
+g.group0 path,
+g.group0 circle {
+  stroke: red;
+  fill: none;
+}
+
+g.hidden line,
+g.hidden path {
+  display: none;
+}
+
+g.tick line {
+  stroke: blue;
+}
+
+g.tick text {
+  font-size: 12px;
+  fill: purple;
+}
+
+rect {
+  fill: none;
+  stroke: black;
+  stroke-width:2px;
+}
+
+.outerCircle {
+  fill: none;
+  stroke-width:3px; }
+
+
+circleIn {
+  fill: green;
+}
+circleOut {
+  fill: green;
+}
+
+text {
+  font-family: arial;
+  fill: white;
+  font-size: 11px;
+}
+
+
+.meta{
+    margin-top:10px;]
+    margin-left:10px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+.entry{
+    width: 20px;
+    border:15px solid green;
+    padding: 2px;
+    margin:2px;
+
+}
