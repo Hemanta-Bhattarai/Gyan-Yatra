@@ -92,9 +92,9 @@ class StudentClassMethod(object):
         student = cls(first_name, last_name)
         return student
     
-    @classmethod
-    def getCount(cls):
-        return cls.totalCount
+    @staticmethod
+    def getCount():
+        return StudentClassMethod.totalCount
     
     
 print("Start of program")
