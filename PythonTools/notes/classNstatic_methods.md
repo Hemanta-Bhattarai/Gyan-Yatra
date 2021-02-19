@@ -91,6 +91,10 @@ class StudentClassMethod(object):
         first_name, last_name = map(str,name_str.split(' '))
         student = cls(first_name, last_name)
         return student
+        
+    def getFirst(self):
+        return self.first_name
+    
     
     @staticmethod
     def getCount():
